@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -8,3 +8,37 @@ body{
     background-color: lightblue;
 }
 
+#contenedor{
+    height: 100em;
+    width: 100%;
+
+    
+    
+}
+
+header{
+    background-color: rgb(150, 175, 254);
+    height: 130px;
+    width: 100%;
+    border-bottom: 4px solid black;
+    padding: 40px;
+}
+
+#menu{
+    display: inline-block;
+
+    height: 100em;
+    width: 20%;
+    background-color: rgba(36, 220, 220, 0.625);
+}
+
+
+#list{
+    display: inline-block;
+    margin-left: -6px;
+    height: 100em;
+    width: 80%;
+
+    border-left: 4px solid rgb(0, 0, 0);
+
+}
