@@ -1,3 +1,5 @@
+let arrayTareas = [];
+
 function clearForm(){
     let inputs = $("form input");
 
@@ -27,11 +29,32 @@ function colorearPrioridades(){
 
 function addTaskToPage(nuevaTarea){
     let newTask = `
-    <div class="task"> <div class="taskTitle"> > ${nuevaTarea.titulo}</div> <div class="taskDesc">(${nuevaTarea.descripcion})</div> <div class="taskDate">Fecha de fin: ${nuevaTarea.fechaFin}</div>  <div class="taskPriority">Prioridad: ${nuevaTarea.prioridad}</div> </div>
+    <div class="task"> <div class="taskTitle"> > ${nuevaTarea.titulo}</div> <div class="taskDesc">(${nuevaTarea.descripcion})</div> <div class="taskDate">Fecha de fin: ${nuevaTarea.fechaFin}</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: ${nuevaTarea.prioridad}</div> </div>
     `;
 
     let lista = $("#list");
 
     lista.append(newTask);
     colorearPrioridades();
+}
+
+function addTaskToArray(nuevaTarea){
+    arrayTareas.push(nuevaTarea);
+}
+
+function clearList(){
+    let lista = $("#list");
+    lista.text("");
+
+    let listHeader = `
+    <div id="listHeader">Ordenar por prioridad: 
+        <select name="" id="selectPriorityFilter">
+            <option value="" selected>-</option>
+            <option value="">De mayor a menor</option>
+            <option value="">De menor a mayor</option>
+        </select>
+    </div>
+    `;
+    
+    lista.append(listHeader);
 }

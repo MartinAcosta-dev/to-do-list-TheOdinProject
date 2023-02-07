@@ -12,8 +12,6 @@ $(document).ready(function(){
         }
     }
 
-    
-
     let formulario = $("#formNewTask");
     formulario.hide();
    
@@ -38,8 +36,6 @@ $(document).ready(function(){
     let inputFechaFin = $("#fechaFin");
     inputFechaFin.datepicker();
 
-    let selectProjects = $("#selectProjects");
-    selectProjects.selectmenu();
 
     let btnAddTaskConfirm = $("#btnAddTaskConfirm");
     btnAddTaskConfirm.button();
@@ -56,8 +52,8 @@ $(document).ready(function(){
         //Agregar nuevaTarea al localStorage o a algun array.
 
         addTaskToPage(nuevaTarea);
+        addTaskToArray(nuevaTarea);
 
-        console.log(nuevaTarea)
         clearForm();
 
     });
@@ -81,4 +77,28 @@ $(document).ready(function(){
       }
     });
 
+
+    $("#list").on("click", ".task", function(){
+        let titulo = $(this).find(".taskTitle").text();
+        
+        arrayTareas.forEach(function(element, index){
+            if(element.titulo == titulo){
+                arrayTareas.splice(index, 1)
+            }
+        })
+    });
+
+
+    $("#list").sortable({
+        items: ".task"
+    });
+    $("#listHeader").disableSelection();
+
+
+    $("#test").click(function(){
+        $( "#dialogAddProject" ).dialog({
+            draggable: false,
+            closeOnEscape: true
+        } );
+    });
 });

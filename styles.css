@@ -87,6 +87,12 @@ button{
     
 }
 
+#listHeader{
+    height: 50px;
+    width: 90%;
+    border-bottom: 2px solid rgb(74, 73, 73);
+}
+
 #btnAddTaskConfirm{
     background-color: rgb(220, 255, 220);
 }
@@ -111,7 +117,7 @@ button{
 }
 
 .task:hover{
-    cursor: pointer;
+    cursor:grab;
     background-color:rgb(192, 192, 192) ;
 }
 
@@ -154,4 +160,33 @@ button{
 
 #formNewTask p{
     margin-top: 20px;
+}
+
+#selectPriorityFilter{
+    width: 90px;
+    height: 60%;
+}
+
+.fa-trash:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.fa-pencil:hover{
+    color: rgb(231, 231, 0);
+    cursor: pointer;
+}
+
+#btnAddProjectConfirm{
+    width: 100%;
+}
+
+#btnAddProjectConfirm:hover{
+    cursor: pointer;
+}
+
+#selectProjects{
+    width: 160px;
+    height: 30px;
+    font-size: 16px;
 }
