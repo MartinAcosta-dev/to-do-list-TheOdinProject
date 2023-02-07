@@ -23,7 +23,7 @@ body{
 }
 
 header{
-    background-color: rgb(138, 215, 248);
+    background-color: rgb(191, 236, 255);
     height: 130px;
     width: 100%;
     padding: 40px;
@@ -39,11 +39,12 @@ header{
 #menu{
     height: 50em;
     width: 20%;
-    background-color: rgb(138, 215, 248);
+    background-color: rgb(191, 236, 255);
 
     text-align: center;
 
     padding-top: 40px;
+
 }
 
 #formNewTask input{
@@ -84,8 +85,8 @@ button{
     flex-wrap: wrap;
     padding: 60px;
     
-    
-}
+    background-color: #bfbfbf;
+    background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%239b98a1' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
 
 #listHeader{
     height: 50px;
@@ -104,7 +105,7 @@ button{
 .task{
     width: 90%;
     height: 90px;
-    background-color: rgb(173, 173, 173);
+    background-color: rgb(237, 234, 234);
     border-radius: 20px;
     font-size: 20px;
     font-weight: 700;
@@ -118,7 +119,7 @@ button{
 
 .task:hover{
     cursor:grab;
-    background-color:rgb(192, 192, 192) ;
+    background-color:rgb(228, 226, 226) ;
 }
 
 .task div{
