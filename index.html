@@ -7,22 +7,42 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+    <header>
+        <h1>To-Do List - The Odin Project</h1>
+
+        <select id="selectProjects">
+            <option selected >Select project...</option>
+            <option ><b>Add project...</b></option>
+        </select>
+    </header>
+
     <div id="contenedor">
-        <header>
-            <h1>To-Do List - The Odin Project</h1>
-        </header>
+        
 
         <div id="menu">
-            <div id="menuFlex">
-                
-            </div>
+            <button id="btnAddTask"> + Add Task</button>
+            <form id="formNewTask" action="">
+                <input placeholder="Titulo" type="text" name="" id="">
+                <textarea placeholder="Descricpion" ></textarea>
+                <input placeholder="Fecha de fin" type="text" id="fechaFin">
+                <button id="btnAddTaskConfirm">Add ✓</button>
+            </form>
         </div>
+
         <div id="list">
-    
+            <div class="task"></div>
+            <div class="task"></div>
+            <div class="task"></div>
+            <div class="task"></div>
         </div>
     </div>
     
+    <script src="script.js"></script>
 </body>
 </html>
