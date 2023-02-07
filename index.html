@@ -16,10 +16,14 @@
     <header>
         <h1>To-Do List - The Odin Project</h1>
 
-        <select id="selectProjects">
-            <option selected >Select project...</option>
-            <option ><b>Add project...</b></option>
-        </select>
+        <div>
+            <label for="selectProjects">Projects:</label>
+            <select name="selectProjects" id="selectProjects">
+                <option >-------</option>
+                <option >Add project...</option>
+            </select>
+        </div>
+        
     </header>
 
     <div id="contenedor">
@@ -31,18 +35,20 @@
                 <input placeholder="Titulo" type="text" name="" id="">
                 <textarea placeholder="Descricpion" ></textarea>
                 <input placeholder="Fecha de fin" type="text" id="fechaFin">
+                <p>Prioridad</p>
+                <div id="slider">
+                    <div id="custom-handle" class="ui-slider-handle"></div>
+                </div>
                 <button id="btnAddTaskConfirm">Add ✓</button>
             </form>
         </div>
 
         <div id="list">
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
+            <div class="task"> <div class="taskTitle"> > Terminar tarea</div> <div class="taskDesc">(asodinasoidasoi jasoidjasoidjsaio jioas)</div> <div class="taskDate">Fecha de fin: 02/03/1987</div>  <div class="taskPriority">Prioridad: 89</div> </div>
         </div>
     </div>
     
+    <script src="functions.js"></script>i
     <script src="script.js"></script>
 </body>
 </html>

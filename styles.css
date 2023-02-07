@@ -44,8 +44,6 @@ header{
     text-align: center;
 
     padding-top: 40px;
-
-
 }
 
 #formNewTask input{
@@ -84,7 +82,7 @@ button{
     justify-content: flex-start;
     gap: 20px;
     flex-wrap: wrap;
-    padding: 30px;
+    padding: 60px;
     
     
 }
@@ -93,9 +91,67 @@ button{
     background-color: rgb(220, 255, 220);
 }
 
+#btnAddTaskConfirm:hover{
+    background-color: rgb(232, 252, 232);
+}
+
 .task{
     width: 90%;
-    height: 100px;
+    height: 90px;
     background-color: rgb(173, 173, 173);
-    border-radius: 50px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+
+    padding: 25px;
+}
+
+.task:hover{
+    cursor: pointer;
+    background-color:rgb(192, 192, 192) ;
+}
+
+.task div{
+    display: inline;
+}
+
+.taskTitle{
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.taskDesc{
+    font-size: 16px;
+    margin-right: 40px;
+}
+
+.taskDate{
+    margin-right: 90px;
+}
+
+.taskPriority{
+    color: red;
+}
+
+#slider{
+    width: 80%;
+    margin-left: 30px;
+    margin-top: 8px;
+}
+
+#custom-handle {
+    width: 30px;
+    height: 25px;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+}
+
+#formNewTask p{
+    margin-top: 20px;
 }
