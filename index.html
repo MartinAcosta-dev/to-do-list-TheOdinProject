@@ -7,11 +7,13 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="formsStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
     <header>
@@ -52,7 +54,7 @@
                     <option value="">De menor a mayor</option>
                 </select>
             </div>
-            <div class="task"> <div class="taskTitle"> > Terminar tarea</div> <div class="taskDesc">(asodinasoidasoi jasoidjasoidjsaio jioas)</div> <div class="taskDate">Fecha de fin: 02/03/1987</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: 89</div> </div>
+            <div class="task"> <div class="taskTitle"> > Terminar tarea</div> <div class="taskDesc">(asodinasoidasoi jasoidjasoidjsaio jioas)</div> <div class="taskDate">Fecha de fin: 02/03/1987</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: 33</div> </div>
         </div>
     </div>
     
@@ -65,7 +67,16 @@
         <button id="btnAddProjectConfirm">Add</button>
     </div>
 
-    <button id="test" >aaaaaaaa</button>
+    <div id="dialogEditTask" title="Editar tarea" style="display: none">
+        <form id="editTask" action="">
+            <div style="display: none" id="divEditId"></div>
+            <input placeholder="Titulo" type="text" id="inputEditTitle">
+            <textarea placeholder="Descricpion"></textarea>
+            <input placeholder="Fecha de fin" type="text" id="inputEditFecha">
+            <input type="number" placeholder="Prioridad" id="inputEditPrioridad">
+            <button id="btnEditTaskConfirm">Editar ✓</button>
+        </form>
+    </div>
 
     <script src="functions.js"></script>
     <script src="script.js"></script>

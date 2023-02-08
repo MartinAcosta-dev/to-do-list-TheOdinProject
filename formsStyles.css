@@ -1,0 +1,16 @@
+#editTask input{
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+#editTask textarea{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+#btnEditTaskConfirm{
+    width: 100% !important;
+}

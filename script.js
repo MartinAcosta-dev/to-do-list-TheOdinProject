@@ -1,9 +1,11 @@
 $(document).ready(function(){
 
+    listarTareas();
     colorearPrioridades();
 
     class Tarea{
-        constructor(titulo, descripcion, fechaFin, prioridad, proyecto){
+        constructor(id, titulo, descripcion, fechaFin, prioridad, proyecto){
+            this.id = id;
             this.titulo = titulo;
             this.descripcion = descripcion;
             this.fechaFin = fechaFin;
@@ -20,7 +22,6 @@ $(document).ready(function(){
     let inputs = $("form input");
 
     btnAddTask.click(function(){
-
         if(formulario.css("display") == "none"){
             formulario.show("fast")
             btnAddTask.text("Cancelar");
@@ -42,19 +43,18 @@ $(document).ready(function(){
 
     btnAddTaskConfirm.click(function (event) {
         event.preventDefault();
+        let id = localStorage.length + 1;
         let titulo = inputs.eq(0).val();
         let descripcion = $("form textarea").val();
         let fechaFin = inputs.eq(1).val();
         let prioridad = $( "#custom-handle" ).text();
-
-        let nuevaTarea = new Tarea(titulo, descripcion, fechaFin, prioridad);
+        let proyecto = "Principal";
 
         //Agregar nuevaTarea al localStorage o a algun array.
 
-        addTaskToPage(nuevaTarea);
-        addTaskToArray(nuevaTarea);
+        addTaskToStorage(id, titulo, descripcion, fechaFin, prioridad, proyecto);
 
-        clearForm();
+        listarTareas();
 
     });
 
@@ -78,27 +78,65 @@ $(document).ready(function(){
     });
 
 
-    $("#list").on("click", ".task", function(){
-        let titulo = $(this).find(".taskTitle").text();
-        
-        arrayTareas.forEach(function(element, index){
-            if(element.titulo == titulo){
-                arrayTareas.splice(index, 1)
-            }
-        })
-    });
-
-
     $("#list").sortable({
         items: ".task"
     });
+
     $("#listHeader").disableSelection();
 
+    $("#list").on("click",".fa-trash",function(){
+        var padre = $(this).parent();
+        let taskId = padre.find(".taskId").text();
 
-    $("#test").click(function(){
-        $( "#dialogAddProject" ).dialog({
+        console.log(taskId);
+        padre.fadeOut();
+        deleteTaskFromStorage(parseInt(taskId));
+    })
+
+    $("#list").on("click",".fa-pencil",function(){
+        var padre = $(this).parent();
+        let taskId = padre.find(".taskId").text();
+        
+
+        let titulo = padre.find(".taskTitle").text();
+        let descripcion = padre.find(".taskDesc").text();
+        let fechaFin = padre.find(".taskDate")
+                            .text()
+                            .split(": ")[1];
+        let prioridad = padre.find(".taskPriority")
+                             .text()
+                             .split(" ")[1];   
+
+        $("#dialogEditTask").dialog({
             draggable: false,
             closeOnEscape: true
-        } );
+        });
+
+        $("#divEditId").text(taskId);
+        $("#inputEditTitle").val(titulo);
+        $("#editTask textarea").val(descripcion);
+        $("#inputEditFecha").val(fechaFin);
+        $("#inputEditPrioridad").val(prioridad);
+
     });
+
+    let botonEditarConfirmar = $("#btnEditTaskConfirm");
+    botonEditarConfirmar.button();
+    botonEditarConfirmar.click(function(event){
+        event.preventDefault();
+
+        let id =  $("#divEditId").text();
+        let nuevoTitulo =  $("#inputEditTitle").val();
+        let nuevaDescripcion = $("#editTask textarea").val();
+        let nuevaFechaFin = $("#inputEditFecha").val();
+        let nuevaPrioridad = $("#inputEditPrioridad").val();
+
+        editTask(id, nuevoTitulo, nuevaDescripcion, nuevaFechaFin, nuevaPrioridad);
+
+        $("#dialogEditTask").dialog("close")
+
+        listarTareas();
+    });
+                            
+    
 });
