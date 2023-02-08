@@ -58,26 +58,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 }
 
-#formNewTask input{
-    margin-top: 10px;
-    width: 70%;
-    height: 40px;
-    padding: 2px;
-    font-size: 25px;
-}
-
-#formNewTask textarea{
-    margin-top: 10px;
-    width: 70%;
-    height: 100px;
-    padding: 2px;
-    resize: none;
-}
-
-#formNewTask button{
-    margin-top: 10px;
-}
-
 button{
     height: 60px;
     width: 120px;
