@@ -74,13 +74,45 @@ function listarTareas(){
         let tarea = localStorage.getItem(i);
         tarea = tarea.split(",");
 
-        let newTask = `
-        <div class="task"> <div class="taskId" style="display: none"> ${i}  </div> <div class="taskTitle">${tarea[0]}</div> <div class="taskDesc">${tarea[1]}</div> <div class="taskDate">Fecha de fin: ${tarea[2]}</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: ${tarea[3]}</div> </div>
-        `  ;
+        if(tarea[0] != 'proyecto'){
+            let newTask = `
+            <div class="task"> <div class="taskId" style="display: none"> ${i}  </div> <div class="taskTitle">${tarea[0]}</div> <div class="taskDesc">${tarea[1]}</div> <div class="taskDate">Fecha de fin: ${tarea[2]}</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: ${tarea[3]}</div> </div>
+            `  ;
 
         
 
-        lista.append(newTask);
-        colorearPrioridades();
+            lista.append(newTask);
+            colorearPrioridades();
+        }
     }
+}
+
+function listarProyectos(){
+ 
+    
+    let allProjects = `
+        <option id="allProjects" selected>-------</option>
+    `;
+
+    let projects = $("#selectProjects");
+
+    projects.text("");
+    projects.append(allProjects);
+
+    for(var i=1; i <= localStorage.length; i++){
+        var proyecto = localStorage.getItem(i);
+        esProyecto = proyecto.split(",")[0];
+        proyecto = proyecto.split(",")[1];
+
+        if(esProyecto == "proyecto"){
+            let newProject = `<option>${proyecto}</option>`;
+            projects.append(newProject);
+        }
+    }
+
+    let AddNewProject = `
+        <option>Add project...</option>
+    `;
+
+    projects.append(AddNewProject);
 }

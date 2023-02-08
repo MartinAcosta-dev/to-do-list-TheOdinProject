@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     listarTareas();
+    listarProyectos();
     colorearPrioridades();
 
     class Tarea{
@@ -136,6 +137,16 @@ $(document).ready(function(){
 
         listarTareas();
     });
-                            
+                      
+    
+    $("#selectProjects").change(function(){
+        let optionSelected = $(this).val();
+        if(optionSelected == "Add project..."){
+            var proyecto = prompt("Ingrese un nombre para el nuevo proyecto");
+            localStorage.setItem(localStorage.length+1 , "proyecto,"+proyecto);
+
+            listarProyectos();
+        } 
+    });
     
 });
