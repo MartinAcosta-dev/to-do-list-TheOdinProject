@@ -77,7 +77,6 @@ $(document).ready(function(){
       }
     });
 
-
     $("#list").sortable({
         items: ".task"
     });
