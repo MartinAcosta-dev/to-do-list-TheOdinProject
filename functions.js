@@ -18,9 +18,9 @@ function colorearPrioridades(){
         if(numberPrioridad < 40){
             prioridades.eq(i).css("color","rgb(11, 225, 11)")
         }else if(numberPrioridad < 69){
-            prioridades.eq(i).css("color","rgb(11, 150, 11)")
+            prioridades.eq(i).css("color","rgb(255,234,165)")
         }else{
-            prioridades.eq(i).css("color","red")
+            prioridades.eq(i).css("color","rgb(255,50,50)")
         }
     }
 }
