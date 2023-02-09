@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
-    listarTareas();
+    let proyectoElegido = "";
+
+    listarTareas(" ");
     listarProyectos();
     colorearPrioridades();
 
@@ -49,13 +51,18 @@ $(document).ready(function(){
         let descripcion = $("form textarea").val();
         let fechaFin = inputs.eq(1).val();
         let prioridad = $( "#custom-handle" ).text();
-        let proyecto = "Principal";
+        let proyecto = $("#selectProjects").val();
 
         //Agregar nuevaTarea al localStorage o a algun array.
 
-        addTaskToStorage(id, titulo, descripcion, fechaFin, prioridad, proyecto);
+        if(eligioProyecto()){
+            
+            addTaskToStorage(id, titulo, descripcion, fechaFin, prioridad, proyecto);
 
-        listarTareas();
+            listarTareas(proyecto);
+        }else{
+            alert("Debe elegir un proyecto para la tarea.")
+        }
 
     });
 
@@ -135,19 +142,24 @@ $(document).ready(function(){
 
         $("#dialogEditTask").dialog("close")
 
-        listarTareas();
     });
                       
     
     $("#selectProjects").change(function(){
         let optionSelected = $(this).val();
-        if(optionSelected == "Add project..."){
-            var proyecto = prompt("Ingrese un nombre para el nuevo proyecto");
-            if(proyecto != null && proyecto != ""){
-                localStorage.setItem(localStorage.length+1 , "proyecto," + proyecto);
-            }
-            listarProyectos();
+        if (optionSelected == "-------"){
+            listarTareas(" ");
+        }else if(optionSelected == "Add project..."){
+                var proyecto = prompt("Ingrese un nombre para el nuevo proyecto");
+                    if(proyecto != null && proyecto != ""){
+                        localStorage.setItem(localStorage.length+1 , "proyecto," + proyecto);
+                    }
+                listarProyectos();
+        }else{
+            listarTareas(optionSelected);
         } 
+            
+        
     });
     
 });

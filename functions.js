@@ -6,6 +6,14 @@ function clearForm(){
 
 }
 
+function eligioProyecto(){
+    if ($("#selectProjects").val() == "-------" ){
+        return false
+    }else{
+        return true
+    }
+}
+
 function colorearPrioridades(){
     let prioridades = $(".taskPriority");
 
@@ -24,8 +32,6 @@ function colorearPrioridades(){
         }
     }
 }
-
-
 
 
 function clearList(){
@@ -64,25 +70,43 @@ function editTask(id, titulo, descripcion, fechaFin, prioridad){
     let tarea = localStorage.setItem(parseInt(id), titulo+","+descripcion+","+fechaFin+","+prioridad+", Principal");
 }
 
-function listarTareas(){
+function listarTareas(proyecto){
 
     let lista = $("#list");
     
     clearList();
 
-    for(let i = 1; i <= localStorage.length ; i++){
-        let tarea = localStorage.getItem(i);
-        tarea = tarea.split(",");
-
-        if(tarea[0] != 'proyecto'){
-            let newTask = `
-            <div class="task"> <div class="taskId" style="display: none"> ${i}  </div> <div class="taskTitle">${tarea[0]}</div> <div class="taskDesc">${tarea[1]}</div> <div class="taskDate">Fecha de fin: ${tarea[2]}</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: ${tarea[3]}</div> </div>
-            `  ;
-
-        
-
-            lista.append(newTask);
-            colorearPrioridades();
+    if(proyecto==" "){
+        for(let i = 1; i <= localStorage.length ; i++){
+            let tarea = localStorage.getItem(i);
+            tarea = tarea.split(",");
+    
+            if(tarea[0] !== 'proyecto'){
+                let newTask = `
+                <div class="task"> <div class="taskId" style="display: none"> ${i}  </div> <div class="taskTitle">${tarea[0]}</div> <div class="taskDesc">${tarea[1]}</div> <div class="taskDate">Fecha de fin: ${tarea[2]}</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: ${tarea[3]}</div> </div>
+                `  ;
+    
+            
+    
+                lista.append(newTask);
+                colorearPrioridades();
+            }
+        }
+    }else{
+        for(let i = 1; i <= localStorage.length ; i++){
+            let tarea = localStorage.getItem(i);
+            tarea = tarea.split(",");
+    
+            if(tarea[0] !== 'proyecto' && tarea[4] == proyecto){
+                let newTask = `
+                <div class="task"> <div class="taskId" style="display: none"> ${i}  </div> <div class="taskTitle">${tarea[0]}</div> <div class="taskDesc">${tarea[1]}</div> <div class="taskDate">Fecha de fin: ${tarea[2]}</div> <i class="fa-solid fa-pencil"></i> <i class="fa-solid fa-trash"></i>  <div class="taskPriority">Prioridad: ${tarea[3]}</div> </div>
+                `  ;
+    
+            
+    
+                lista.append(newTask);
+                colorearPrioridades();
+            }
         }
     }
 }
